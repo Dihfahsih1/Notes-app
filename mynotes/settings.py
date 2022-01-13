@@ -26,8 +26,6 @@ SECRET_KEY = 'fw7%2yfsmxsk5hr44p($pzzxt9gwiqu$sbv_=-6d+(wys4ahi1'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-CORS_ALLOW_ALL_ORIGINS = True
-
 
 # Application definition
 
@@ -45,8 +43,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+    
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -125,4 +124,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Set CORS_ORIGIN_ALLOW_ALL is True
+
+CORS_ORIGIN_ALLOW_ALL = True  # this allows all domains
 
