@@ -26,6 +26,7 @@ SECRET_KEY = 'fw7%2yfsmxsk5hr44p($pzzxt9gwiqu$sbv_=-6d+(wys4ahi1'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 # Application definition
@@ -40,10 +41,12 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -121,3 +124,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
