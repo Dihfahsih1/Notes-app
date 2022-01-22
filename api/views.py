@@ -51,14 +51,14 @@ def getNotes(request):
 
 @api_view(['GET'])
 def getNote(request, pk):
-  notes = Note.objects.filter(id=pk)
-  serializer = NoteSerializer(notes, many=True)
+  note = Note.objects.get(id=pk)
+  serializer = NoteSerializer(note, many=False)
   return Response(serializer.data)
 
 @api_view(['PUT'])
 def updateNote(request, pk):
   data = request.data 
-  note = Note.object.get(id=pk)
+  note = Note.objects.get(id=pk)
   serializer = NoteSerializer(instance=note, many=False)
   
   if serializer.is_valid():
@@ -69,6 +69,6 @@ def updateNote(request, pk):
 @api_view(['DELETE'])
 
 def deleteNote(request, pk):
-  note = Note.object.get(id=pk)
+  note = Note.objects.get(id=pk)
   note.delete()
   return Response('Note deleted successfully!!')
